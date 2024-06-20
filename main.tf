@@ -7,4 +7,7 @@ resource "azurerm_virtual_network_gateway_connection" "vpn_connection" {
   virtual_network_gateway_id    = var.virtual_network_gateway_output[each.value.vpn_gateway_name].id
   local_network_gateway_id      = var.local_network_gateway_output[each.value.local_network_gateway_name].id
   shared_key                    = each.value.shared_key
+  connection_protocol           = each.value.connection_protocol
+  connection_mode               = each.value.connection_mode
+  dpd_timeout_seconds           = each.value.dpd_timeout_seconds
 }
