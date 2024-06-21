@@ -11,7 +11,6 @@ resource "azurerm_virtual_network_gateway_connection" "vpn_connection" {
   connection_mode               = each.value.connection_mode
   dpd_timeout_seconds           = each.value.dpd_timeout_seconds
   enable_bgp                    = each.value.enable_bgp
-  use_policy_based_traffic_selectors = each.value.use_policy_based_traffic_selectors
   tags                          = each.value.tags
   dynamic "custom_bgp_addresses" {
     for_each = each.value.enable_bgp == true ? each.value.custom_bgp_addresses : []
